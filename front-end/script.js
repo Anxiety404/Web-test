@@ -1,4 +1,3 @@
-// ===== EXISTING MENU CODE (UNCHANGED) =====
 const menuToggle = document.querySelector('.menu-toggle');
 const overlayMenu = document.getElementById('overlay-menu');
 
@@ -18,7 +17,6 @@ closeBtn.addEventListener('click', function(e) {
     overlayMenu.style.display = 'none';
 });
 
-// ===== NEW: LOCAL SESSION CHAT CODE =====
 document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("chat-message");
     const button = document.getElementById("send-message");
