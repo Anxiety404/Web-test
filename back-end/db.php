@@ -1,7 +1,7 @@
 <?php
-$dsn = "mysql:host=localhost;dbname=your_db;charset=utf8mb4";
-$user = "db_user";
-$pass = "db_pass";
+$dsn = "mysql:host=mysql;dbname=app_db;charset=utf8mb4";
+$user = "app_user";
+$pass = "app_pass";
 
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

@@ -16,34 +16,58 @@ closeBtn.addEventListener('click', function(e) {
     e.preventDefault();
     overlayMenu.style.display = 'none';
 });
-
 document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("chat-message");
-    const button = document.getElementById("send-message");
-    const messagesDiv = document.getElementById("chat-messages");
+    const chatRoot = document.getElementById("feedback-chat");
+    if (!chatRoot) return;
 
-    if (!input || !button || !messagesDiv) return; // chat not on this page
+    const input = chatRoot.querySelector("#chat-message");
+    const button = chatRoot.querySelector("#send-message");
+    const messagesDiv = chatRoot.querySelector("#chat-messages");
 
-    // Add message to chat
+    const page = window.location.pathname;
+
     function addMessage(text, self = false) {
         const msg = document.createElement("div");
         msg.className = self ? "message self" : "message";
         msg.textContent = text;
         messagesDiv.appendChild(msg);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight; // auto-scroll
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
-    // Send message (local only)
-    function sendMessage() {
+    async function loadMessages() {
+        try {
+            const res = await fetch(`/Github/Web-test/back-end/message.php?page=${encodeURIComponent(page)}`);
+            const data = await res.json();
+            messagesDiv.innerHTML = "";
+            data.forEach(m => addMessage(m.message));
+        } catch (err) {
+            console.error("Error loading messages:", err);
+        }
+    }
+
+    async function sendMessage() {
         const text = input.value.trim();
         if (!text) return;
 
-        addMessage(text, true); // show message in chat
         input.value = "";
+        addMessage(text, true);
+
+        try {
+            const res = await fetch("/Github/Web-test/back-end/message.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: text, page: page })
+            });
+
+            const json = await res.json();
+            console.log("Server response:", json);
+        } catch (err) {
+            console.error("Error sending message:", err);
+        }
     }
 
     button.addEventListener("click", sendMessage);
-    input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") sendMessage();
-    });
+    input.addEventListener("keydown", e => { if (e.key === "Enter") sendMessage(); });
+
+    loadMessages();
 });
