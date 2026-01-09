@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = chatRoot.querySelector("#chat-message");
     const button = chatRoot.querySelector("#send-message");
     const messagesDiv = chatRoot.querySelector("#chat-messages");
+    const headerSvg = chatRoot.querySelector("#chat-header svg");
 
     const page = window.location.pathname;
 
@@ -41,33 +42,34 @@ document.addEventListener("DOMContentLoaded", () => {
             messagesDiv.innerHTML = "";
             data.forEach(m => addMessage(m.message));
         } catch (err) {
-            console.error("Error loading messages:", err);
+            console.error(err);
         }
     }
 
     async function sendMessage() {
         const text = input.value.trim();
         if (!text) return;
-
         input.value = "";
         addMessage(text, true);
-
         try {
             const res = await fetch("/Github/Web-test/back-end/message.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: text, page: page })
             });
-
-            const json = await res.json();
-            console.log("Server response:", json);
+            await res.json();
         } catch (err) {
-            console.error("Error sending message:", err);
+            console.error(err);
         }
     }
 
     button.addEventListener("click", sendMessage);
     input.addEventListener("keydown", e => { if (e.key === "Enter") sendMessage(); });
+
+    headerSvg.addEventListener("click", (e) => {
+        e.stopPropagation();
+        chatRoot.classList.toggle("expanded");
+    });
 
     loadMessages();
 });
