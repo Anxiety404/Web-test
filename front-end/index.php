@@ -24,7 +24,7 @@
 
     <div id="overlay-menu">
         <ul>
-            <li><a href="#">Option 1</a></li>
+            <li><a href="https://desaak.com/">Official site</a></li>
             <li><a href="#">Option 2</a></li>
             <li><a href="#">Option 3</a></li>
             <li><a href="#">Option 4</a></li>
@@ -56,7 +56,7 @@
         <p>
             Business Central integreert naadloos met de hele Microsoft-suite. Deel projectplanningen eenvoudig, 
             verstuur offertes rechtstreeks vanuit Outlook en werk efficiënter met Word en Teams.
-            <br><strong>Meer info</strong>
+            <br><a href="https://desaak.com/business-central" target="_blank"><strong>Meer info</strong></a>
         </p>
     </div>
 
@@ -65,7 +65,7 @@
         <p>
             Optimaliseer je bedrijfsprocessen met onze expertise en oplossingen. Profiteer standaard van 
             uitgebreide managementrapportages met Power BI.
-            <br><strong>Meer info</strong>
+            <br><a href="https://desaak.com/oplossingen" target="_blank"><strong>Meer info</strong></a>
         </p>
     </div>
 
@@ -74,6 +74,7 @@
         <p>
             Wij begeleiden je bij de implementatie en digitale transformatie van jouw organisatie. 
             Samen bouwen we aan een efficiëntere en toekomstbestendige werkomgeving.
+            <br><a href="https://desaak.com/contact" target="_blank"><strong>Meer info</strong></a>
         </p>
     </div>
 
@@ -102,21 +103,24 @@
         </div>
     </div>
 
-    <div class="footer-home">
-          <footer class="footer">
-        <button class="button is-large">
-          <span>GitHub</span>
-        </button>
+<div class="footer-home">
+  <footer class="footer">
+    <a href="https://github.com/your-username" target="_blank" class="button is-large github-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="github-icon">
+        <path d="M12 0.297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.305-5.466-1.335-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.304-.54-1.527.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.65.24 2.872.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.372.825 1.102.825 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+      </svg>
+      <span>GitHub</span>
+    </a>
+
+    <div class="footer-text">
+      <p class="is-centered">
+        <strong>Site</strong> by Jay<br>
+        The source code is licensed by <strong>MIT</strong><span class="mit-ty">ty</span>
+        <img src="images/Mitty_Narehate_Anime_Square.webp" alt="Mitty" class="footer-img">
       </p>
-        <div class="">
-          <p class="is-centered ">
-            <strong>Site</strong> by Jay
-            <br>
-            The source code is licensed by <strong>MIT</strong>ty.<img src="Mitty_Narehate_Anime_Square.webp" alt="Mitty" class="image is-32x32 is-responsive is-rounded">
-          </p>
-        </div>
-  </footer>
     </div>
+  </footer>
+</div>
 
 
 <script src="script.js">
