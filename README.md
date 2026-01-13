@@ -9,7 +9,8 @@ Localhost URL: http://localhost:8080/Github/Web-test/front-end/index.php
 ```
 
 ## Video
-![Watch the demo video](./gif/2026-01-13%2015-08-45.gif)
+
+![Watch the demo video](./gif/2026-01-13%2015-08-45(1).gif)
 
 ## Features
 - Secure sessions & CSRF protection – All user interactions are safe and session-based.
