@@ -18,8 +18,7 @@ $bannedWords = [
     "slur1",
     "slur2",
     "fuck",
-    "shit",
-    "",
+    "shit"
 ];
 
 // Function to replace banined words with asterisks
@@ -61,7 +60,6 @@ if ($method === 'GET') {
     exit;
 }
 
-// POST = Send message
 // POST = Send message
 if ($method === 'POST') {
     $data = json_decode(file_get_contents("php://input"), true);

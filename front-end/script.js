@@ -17,7 +17,7 @@ closeBtn.addEventListener('click', function(e) {
     overlayMenu.style.display = 'none';
 });
 
-//scroll
+// scroll
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('ul');
     if (window.scrollY > 10) {
@@ -28,7 +28,7 @@ window.addEventListener('scroll', function() {
 });
 
 
-//chat
+// chat
 document.addEventListener("DOMContentLoaded", () => {
     const chatRoot = document.getElementById("feedback-chat");
     if (!chatRoot) return;
@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const bannedWords = ["swear1", "swear2", "slur1", "slur2", "etc"];
 
-    // JS censor function
     function censorMessage(message) {
         let censored = message;
         bannedWords.forEach(word => {
@@ -101,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Store username in localStorage
     let userName = localStorage.getItem("chat_name") || null;
 
     function ensureName() {
@@ -112,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             const setBtn = document.getElementById("set-name");
             const nameInput = document.getElementById("chat-name");
-            // Press Enter also works
             nameInput.addEventListener("keydown", e => {
                 if (e.key === "Enter") setName();
             });
@@ -127,7 +124,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <input id="chat-message" placeholder="Type your message..." style="flex:1; padding:6px;">
                     <button id="send-message" style="padding:6px 10px;">Send</button>
                 `;
-                // Re-bind the input and button
                 bindSend();
                 loadMessages();
             }
@@ -152,12 +148,9 @@ document.addEventListener("DOMContentLoaded", () => {
         newInput.addEventListener("keydown", e => { if (e.key === "Enter") handleSend(); });
     }
 
-    // Toggle chat expand
     headerSvg.addEventListener("click", () => {
         chatRoot.classList.toggle("expanded");
         if (ensureName()) loadMessages();
     });
-
-    // Initial bind if user already has a name
     if (userName) bindSend();
 });
